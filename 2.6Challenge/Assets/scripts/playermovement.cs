@@ -24,8 +24,18 @@ public class playermovement : MonoBehaviour
         xMove.x = arrowInput;
         xMove.y = y;
         player.Translate(xMove * Time.deltaTime);
-        Vector2 flip = new Vector2(-1.0f, 1.0f);
-        transform.localScale *=  flip;
+       // Vector2 flip = new Vector2(-1.0f, 1.0f);
+        //transform.localScale *=  flip;
+      
+        if (Input.GetAxis ("Horizontal")>0)
+        {
+            player.localScale = new Vector3(5, 5, 1);
+        } 
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            player.localScale = new Vector3(-5, 5, 1);
+        }
+
     }
 
   
